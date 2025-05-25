@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráfico de Espectro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 20px;
+    }
+    input, label {
+      display: block;
+      margin: 5px 0;
+      color: #fff;
+    }
+    input {
+      padding: 5px;
+      background-color: #1f1f1f;
+      border: 1px solid #555;
+      color: #fff;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .form-section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simulador de Espectro</h1>
+  <form method="get" action="/generar_grafica">
+    <div class="form-section">
+
+      <label for="temperature">Temperatura (K):</label>
+      <input type="number" name="temperatura" required>
+
+      <label for="system_bw">Ancho de banda del ruido en (KHz):</label>
+      <input type="number" name="Bw" required>
+
+    </div>
+
+    <div class="form-section">
+      <h3>Señal 1</h3>
+      <label>Frecuencia central (MHz):</label>
+      <input type="number" name="fc0" required>
+      <label>Potencia (dBm):</label>
+      <input type="number" name="power0" required>
+      <label>Ancho de banda (MHz):</label>
+      <input type="number" name="bw0" required>
+    </div>
+
+    <div class="form-section">
+      <h3>Señal 2</h3>
+      <label>Frecuencia central (MHz):</label>
+      <input type="number" name="fc1" required>
+      <label>Potencia (dBm):</label>
+      <input type="number" name="power1" required>
+      <label>Ancho de banda (MHz):</label>
+      <input type="number" name="bw1" required>
+    </div>
+
+    <div class="form-section">
+      <h3>Señal 3</h3>
+      <label>Frecuencia central (MHz):</label>
+      <input type="number" name="fc2" required>
+      <label>Potencia (dBm):</label>
+      <input type="number" name="power2" required>
+      <label>Ancho de banda (MHz):</label>
+      <input type="number" name="bw2" required>
+    </div>
+
+    <button type="submit">Generar gráfico</button>
+  </form>
+
+ <div class="container mt-4">
+        <h1 class="text-center mb-4">Grafico de espectro</h1>
+        <img src="{{ image_url }}" class="img-fluid" alt="Grafico De Espectro">
+        
+    </div>
+
+    <!-- 
+  {% if spectrum_image %}
+  <h2>Resultado del gráfico:</h2>
+  <img src="data:image/png;base64,{{ spectrum_image }}" alt="Gráfico de espectro" style="max-width: 100%;" />
+{% endif %}
+-->
+
+
+</body>
+</html>
